@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "656611043218",
+    "project_id": "smartfarmer-1d118",
+    "storage_bucket": "smartfarmer-1d118.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656611043218:android:8170a821581abc3381834b",
+        "android_client_info": {
+          "package_name": "com.example.smartfarmer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656611043218-9d8b697r5k6inqprkft1c5k7ql6bdcgr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartfarmer",
+            "certificate_hash": "cae37787a65647e98fdedd183abf74c0bbe335b5"
+          }
+        },
+        {
+          "client_id": "656611043218-j09ua1fh1e9fuqjqp4156fstl220c8k2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEWke85ZB8G1jTULekV3y4L0IWp4jl2XY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "656611043218-j09ua1fh1e9fuqjqp4156fstl220c8k2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656611043218:android:7fed5bf69f09dce981834b",
+        "android_client_info": {
+          "package_name": "com.example.smartfarmerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656611043218-j09ua1fh1e9fuqjqp4156fstl220c8k2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEWke85ZB8G1jTULekV3y4L0IWp4jl2XY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "656611043218-j09ua1fh1e9fuqjqp4156fstl220c8k2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

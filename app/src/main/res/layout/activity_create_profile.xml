@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".CreateProfile">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Profile"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_margin="10dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="75dp"
+        app:cardPreventCornerOverlap="false"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/iv_cp"
+            android:background="@drawable/ic_baseline_person_pin_24"
+            android:clickable="true"
+            android:scaleType="fitCenter"/>
+
+
+
+    </androidx.cardview.widget.CardView>
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:id="@+id/et_name_cp"
+        android:drawableStart="@drawable/ic_baseline_perm_identity_24"
+        android:paddingStart="5dp"
+        android:drawablePadding="7dp"
+        android:layout_margin="4dp"
+        android:textColor="@android:color/black"
+        android:paddingLeft="5dp"
+        android:drawableLeft="@drawable/ic_baseline_perm_identity_24" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Profession"
+        android:drawableStart="@drawable/ic_baseline_work_24"
+        android:paddingStart="5dp"
+        android:drawablePadding="7dp"
+        android:id="@+id/et_Profession_cp"
+        android:layout_margin="4dp"
+        android:textColor="@android:color/black"
+        android:drawableLeft="@drawable/ic_baseline_work_24"
+        android:paddingLeft="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:id="@+id/et_email_cp"
+        android:drawableStart="@drawable/ic_baseline_person_pin_24"
+        android:paddingStart="5dp"
+        android:drawablePadding="7dp"
+        android:layout_margin="4dp"
+        android:textColor="@android:color/black"
+        android:drawableLeft="@drawable/ic_baseline_person_pin_24"
+        android:paddingLeft="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="City"
+        android:id="@+id/et_city_cp"
+        android:drawableStart="@drawable/ic_baseline_location_city_24"
+        android:paddingStart="5dp"
+        android:drawablePadding="7dp"
+        android:layout_margin="4dp"
+        android:textColor="@android:color/black"
+        android:drawableLeft="@drawable/ic_baseline_location_city_24"
+        android:paddingLeft="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address"
+        android:id="@+id/et_Adress_cp"
+        android:drawableStart="@drawable/ic_baseline_location_on_24"
+        android:paddingStart="5dp"
+        android:drawablePadding="7dp"
+        android:layout_margin="4dp"
+        android:textColor="@android:color/black"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:paddingLeft="5dp" />
+
+    <Button
+        android:layout_width="match_parent"
+            android:text="Save Profile"
+        android:background="@android:color/holo_red_light"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_cp"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:id="@+id/progressbar_cp"/>
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
