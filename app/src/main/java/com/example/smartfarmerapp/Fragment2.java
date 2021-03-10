@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
@@ -99,6 +102,18 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
                         final String time = getItem(position).getTime();
                         final String userid = getItem(position).getUserid();
 
+
+                        holder.replybtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(getActivity(),ReplyActivity.class);
+                                intent.putExtra("uid",userid);
+                                intent.putExtra("q",que);
+                                intent.putExtra("postkey",postkey);
+                                startActivity(intent);
+                            }
+                        });
+
                         holder.favoriteChecker(postkey);
                         holder.fvrt_btn.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -124,8 +139,8 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
                                                 farmer.setQuestion(que);
 
 
-                                                String id = fvrt_listRef.push().getKey();
-                                                fvrt_listRef.child(id).setValue(farmer);
+                                                //String id = fvrt_listRef.push().getKey();
+                                                fvrt_listRef.child(postkey).setValue(farmer);
                                                 fvrtChecker = false;
 
                                             }
@@ -197,22 +212,25 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
 
 
     }
-
     @Override
     public void onStart() {
         super.onStart();
-
         reference.get()
-                .addOnCompleteListener(task -> {
-                    if(task.getResult().exists()){
-                        String url = task.getResult().getString("url");
-                        Picasso.get().load(url).into(imageView);
-                    }else {
-                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.getResult().exists()){
+                            String url = task.getResult().getString("url");
+
+                            Picasso.get().load(url).into(imageView);
+                        }else {
+                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
+                });
 
-        });
+
 
     }
 }
