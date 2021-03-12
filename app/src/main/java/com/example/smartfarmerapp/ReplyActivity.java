@@ -8,16 +8,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -33,6 +41,10 @@ public class ReplyActivity extends AppCompatActivity {
     TextView nametv, questiontv, tvreply;
     RecyclerView recyclerView;
     ImageView imageViewQue, imageViewUser;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference votesref,Allquetions;
+
+    Boolean votechecker = false;
 
 
     @Override
@@ -50,6 +62,9 @@ public class ReplyActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(ReplyActivity.this));
 
 
+
+
+
         Bundle extra = getIntent().getExtras();
         if (extra != null) {
             uid = extra.getString("uid");
@@ -64,6 +79,10 @@ public class ReplyActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String currentUserid = user.getUid();
+
+        Allquetions = database.getReference("All Questions").child(post_key).child("Answer");
+        votesref = database.getReference("votes");
+
 
 
         reference = db.collection("user").document(currentUserid);
@@ -124,5 +143,83 @@ public class ReplyActivity extends AppCompatActivity {
 
                     }
                 });
+
+        FirebaseRecyclerOptions<AnswerFarmer> options =
+                new FirebaseRecyclerOptions.Builder<AnswerFarmer>()
+                        .setQuery(Allquetions,AnswerFarmer.class)
+                        .build();
+
+        FirebaseRecyclerAdapter<AnswerFarmer,AnsViewholder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<AnswerFarmer, AnsViewholder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull AnsViewholder holder, int position, @NonNull AnswerFarmer model) {
+
+
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        final String currentUserid = user.getUid();
+
+                        final String postkey = getRef(position).getKey();
+
+
+                        holder.setAnswer(getApplication(),model.getName(),model.getAnswer(),model.getUid(),model.getTime(),model.getUrl());
+
+                        holder.upvoteChecker(postkey);//
+                        holder.upvoteTV.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                votechecker = true;
+                                votesref.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                        if (votechecker.equals(true)){
+                                            if (snapshot.child(postkey).hasChild(currentUserid)){
+                                                votesref.child(postkey).child(currentUserid).removeValue();
+                                                //if it has already voted it will remove
+
+                                                votechecker = false;
+                                            }else {
+                                                votesref.child(postkey).child(currentUserid).setValue(true);
+
+
+                                                votechecker = false;
+
+                                            }
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+
+                            }
+                        });
+
+
+
+
+                    }
+
+                    @NonNull
+                    @Override
+                    public AnsViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View view = LayoutInflater.from(parent.getContext())
+                                .inflate(R.layout.answer_layout,parent,false);
+
+                        return new AnsViewholder(view);
+                    }
+                };
+        firebaseRecyclerAdapter.startListening();
+
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+
+
+
+
+
     }
 }

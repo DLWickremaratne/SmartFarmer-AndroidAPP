@@ -2,6 +2,8 @@ package com.example.smartfarmerapp;
 
 public class AnswerFarmer {
 
+    String name,answer,uid,time,url;
+
     public AnswerFarmer(){
 
     }
@@ -46,7 +48,7 @@ public class AnswerFarmer {
         this.url = url;
     }
 
-    String name,answer,uid,time,url;
+
 
 
 }

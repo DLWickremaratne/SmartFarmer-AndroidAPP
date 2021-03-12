@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Related extends AppCompatActivity {
+public class  Related extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
