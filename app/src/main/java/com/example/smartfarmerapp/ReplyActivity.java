@@ -74,10 +74,10 @@ public class ReplyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(ReplyActivity.this,ReplyActivity.class);
-                intent.putExtra("uid",uid);
+                Intent intent = new Intent(ReplyActivity.this,AnswerActivity.class);
+                intent.putExtra("u",uid);
                 //intent.putExtra("q",question);
-                intent.putExtra("postkey",post_key);
+                intent.putExtra("p",post_key);
                 startActivity(intent);
 
 
