@@ -131,11 +131,11 @@ public class CreateProfile extends AppCompatActivity {
     }
 
     private void uploadData() {
-        String name = etname.getText().toString();
-        String profession = etProfession.getText().toString();
-        String email = etEmail.getText().toString();
-        String city = etCity.getText().toString();
-        String address = etAddress.getText().toString();
+        final String name = etname.getText().toString();
+        final String profession = etProfession.getText().toString();
+        final String email = etEmail.getText().toString();
+        final String city = etCity.getText().toString();
+        final String address = etAddress.getText().toString();
 
         if(!TextUtils.isEmpty(name)  || !TextUtils.isEmpty(profession) || !TextUtils.isEmpty(email) || !TextUtils.isEmpty(city) || !TextUtils.isEmpty(address) || imageUri !=null ){
 
