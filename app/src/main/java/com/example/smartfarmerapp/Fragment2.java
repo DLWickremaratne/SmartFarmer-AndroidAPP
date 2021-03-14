@@ -128,6 +128,7 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
                                             if (snapshot.child(postkey).hasChild(currentUserid)){
                                                 fvrtref.child(postkey).child(currentUserid).removeValue();
                                                 delete(time);
+                                                Toast.makeText(getActivity(), "Removed from favourite", Toast.LENGTH_SHORT).show();
                                                 fvrtChecker = false;
                                             }else{
                                                 //saving everything
@@ -142,6 +143,7 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
                                                 //String id = fvrt_listRef.push().getKey();
                                                 fvrt_listRef.child(postkey).setValue(farmer);
                                                 fvrtChecker = false;
+                                                Toast.makeText(getActivity(), "Added to favourite", Toast.LENGTH_SHORT).show();
 
                                             }
 

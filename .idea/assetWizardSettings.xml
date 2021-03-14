@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/D:/Android/Sdk/icons/material/materialicons/restore/baseline_restore_24.xml" />
+                                      <entry key="url" value="file:/D:/Android/Sdk/icons/material/materialicons/more_horiz/baseline_more_horiz_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,7 +28,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_baseline_restore_24" />
+                            <entry key="outputName" value="ic_moreoptions" />
                             <entry key="sourceFile" value="E:\Smartfarmerapp\Smartfarmerapp\Smartfarmerapp" />
                           </map>
                         </option>
