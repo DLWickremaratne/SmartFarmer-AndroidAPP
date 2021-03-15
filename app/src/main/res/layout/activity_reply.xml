@@ -126,7 +126,7 @@
         <TextView
             android:id="@+id/answer_tv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:background="@drawable/background_custom_reply"
             android:clickable="true"
             android:padding="7dp"
