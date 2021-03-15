@@ -105,8 +105,9 @@
                 android:layout_height="300dp"
                 android:id="@+id/exoplayer_item_post"
                 app:use_controller="true"
+                app:controller_layout_id="@layout/custom_exoplayer"
 
-                app:show_timeout="1000"
+                app:show_timeout="3000"
                 android:visibility="visible"
                 app:resize_mode="fill"
 

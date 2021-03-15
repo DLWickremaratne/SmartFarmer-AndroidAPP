@@ -38,7 +38,7 @@ import com.squareup.picasso.Picasso;
 
 public class InstructionViewholder extends RecyclerView.ViewHolder {
 
-    ImageView imageViewprofile,iv_post;
+    ImageView imageViewprofile,iv_post,vv_post;
     TextView tv_name,tv_desc,tv_likes,tv_comment,tv_time,tv_nameprofile;
     ImageButton likebtn,menuoptions,commentbtn;
     DatabaseReference likesref;
@@ -53,6 +53,8 @@ public class InstructionViewholder extends RecyclerView.ViewHolder {
     public void SetPost(FragmentActivity activity,String name, String url,String postUri,String time,
                         String uid,String type,String desc ){
 
+        SimpleExoPlayer exoPlayer;
+
         imageViewprofile = itemView.findViewById(R.id.ivprofile_item);
         iv_post = itemView.findViewById(R.id.iv_post_item);
         //    tv_comment = itemView.findViewById(R.id.commentbutton_posts);
@@ -64,7 +66,7 @@ public class InstructionViewholder extends RecyclerView.ViewHolder {
         tv_time = itemView.findViewById(R.id.tv_time_post);
         tv_nameprofile = itemView.findViewById(R.id.tv_name_post);
 
-        SimpleExoPlayer exoPlayer;
+
         PlayerView playerView = itemView.findViewById(R.id.exoplayer_item_post);
 
         if (type.equals("iv")){
@@ -84,18 +86,22 @@ public class InstructionViewholder extends RecyclerView.ViewHolder {
             Picasso.get().load(url).into(imageViewprofile);
 
 
+
             try {
 
                 BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter.Builder(activity).build();
                 TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
-                exoPlayer = (SimpleExoPlayer) ExoPlayerFactory.newSimpleInstance(activity);
-               Uri video = Uri.parse(postUri);
-               DefaultHttpDataSourceFactory df = new DefaultHttpDataSourceFactory("video");
-               ExtractorsFactory ef = new DefaultExtractorsFactory();
+                 exoPlayer = (SimpleExoPlayer) ExoPlayerFactory.newSimpleInstance(activity);
+                Uri video = Uri.parse(postUri);
+                DefaultHttpDataSourceFactory df = new DefaultHttpDataSourceFactory("video");
+                ExtractorsFactory ef = new DefaultExtractorsFactory();
                 MediaSource mediaSource = new ExtractorMediaSource(video,df,ef,null,null);
                 playerView.setPlayer(exoPlayer);
                 exoPlayer.prepare(mediaSource);
                 exoPlayer.setPlayWhenReady(false);
+
+
+
 
             }catch (Exception e){
                 Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show();

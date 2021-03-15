@@ -102,7 +102,7 @@ public class InstructionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 chooseImage();
-                
+
             }
         });
 
@@ -110,46 +110,43 @@ public class InstructionActivity extends AppCompatActivity {
     }
 
     private void chooseImage() {
-
-        Intent intent = new Intent(Intent.ACTION_PICK , MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.setType("image/* video/*");
         //intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent,PICK_FILE);
+
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == PICK_FILE || resultCode == RESULT_OK ||
+        if (requestCode == PICK_FILE || resultCode == RESULT_OK ||
+
                 data != null || data.getData() != null){
 
             selectedUri = data.getData();
+
+
             if (selectedUri.toString().contains("image")){
-                if (selectedUri.toString().contains("image")){
-                    Picasso.get().load(selectedUri).into(imageView);
-                    imageView.setVisibility(View.VISIBLE);
-                    videoView.setVisibility(View.INVISIBLE);
-                    type = "iv";
-
-
-                }else if(selectedUri.toString().contains("video")){
-                    videoView.setMediaController(mediaController);
-                    videoView.setVisibility(View.VISIBLE);
-                    imageView.setVisibility(View.INVISIBLE);
-                    videoView.setVideoURI(selectedUri);
-                    videoView.start();
-                    type ="vv";
-
-
-                }else {
-                    Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
-                }
-
+                Picasso.get().load(selectedUri).into(imageView);
+                imageView.setVisibility(View.VISIBLE);
+                videoView.setVisibility(View.INVISIBLE);
+                type = "iv";
+            }else if (selectedUri.toString().contains("video")){
+                videoView.setMediaController(mediaController);
+                videoView.setVisibility(View.VISIBLE);
+                imageView.setVisibility(View.INVISIBLE);
+                videoView.setVideoURI(selectedUri);
+                videoView.start();
+                type = "vv";
+            }else {
+                Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
             }
 
-
         }
+
     }
     private String getFileExt(Uri uri){
         ContentResolver contentResolver = getContentResolver();
@@ -187,107 +184,109 @@ public class InstructionActivity extends AppCompatActivity {
                 });
 
     }
-    void Dopost(){
+    void Dopost() {
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String currentuid = user.getUid();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String currentuid = user.getUid();
 
-        String desc = etdesc.getText().toString();
+            String desc = etdesc.getText().toString();
 
-        Calendar cdate = Calendar.getInstance();
-        SimpleDateFormat currentdate = new SimpleDateFormat("dd-MMMM-YYYY");
-        final  String savedate = currentdate.format(cdate.getTime());
+            Calendar cdate = Calendar.getInstance();
+            SimpleDateFormat currentdate = new SimpleDateFormat("dd-MMMM-YYYY");
+            final String savedate = currentdate.format(cdate.getTime());
 
-        Calendar ctime = Calendar.getInstance();
-        SimpleDateFormat currenttime = new SimpleDateFormat("HH:mm:ss");
-        final String savetime = currenttime.format(ctime.getTime());
+            Calendar ctime = Calendar.getInstance();
+            SimpleDateFormat currenttime = new SimpleDateFormat("HH:mm:ss");
+            final String savetime = currenttime.format(ctime.getTime());
 
-        String time = savedate +":"+ savetime;
+            final String time = savedate + ":" + savetime;
 
-        //press the btn first get time
+            //press the btn first get time
 
-        //do the validation
-        if(TextUtils.isEmpty(desc) || selectedUri !=null){
+            //do the validation
+            if (TextUtils.isEmpty(desc) || selectedUri != null) {
 
-            //create referance for storage
+                //create referance for storage
 
-            progressBar.setVisibility(View.VISIBLE);
-            final StorageReference reference = storageReference.child(System.currentTimeMillis()+ "."+getFileExt(selectedUri));
-            uploadTask = reference.putFile(selectedUri);
+                progressBar.setVisibility(View.VISIBLE);
+                final StorageReference reference = storageReference.child(System.currentTimeMillis() + "." + getFileExt(selectedUri));
+                uploadTask = reference.putFile(selectedUri);
 
-            //when the task succesfully uploaded
-            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if (!task.isSuccessful()){
-                        throw task.getException();
-                    }
-
-
-
-                    return reference.getDownloadUrl();
-                }
-                //validation if task is sucessfull
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-
-                    if (task.isSuccessful()) {
-                        Uri downloadUri = task.getResult();
-
-                        if (type.equals("iv")){
-                            farmerInstruction.setDesc(desc);
-                            farmerInstruction.setName(name);
-                            farmerInstruction.setPostUri(downloadUri.toString());
-                            farmerInstruction.setTime(time);
-                            farmerInstruction.setUid(currentuid);
-                            farmerInstruction.setUrl(url);
-                            farmerInstruction.setType("iv");
-
-                            // for image
-                            String id = db1.push().getKey();
-                            db1.child(id).setValue(farmerInstruction);
-                            // for both
-                            String id1 = db3.push().getKey();
-                            db3.child(id1).setValue(farmerInstruction);
-
-                            progressBar.setVisibility(View.INVISIBLE);
-                            Toast.makeText(InstructionActivity.this, "Instruction Uploaded", Toast.LENGTH_SHORT).show();
-
-
-                        }else if(type.equals("vv")){
-
-                            farmerInstruction.setDesc(desc);
-                            farmerInstruction.setName(name);
-                            farmerInstruction.setPostUri(downloadUri.toString());
-                            farmerInstruction.setTime(time);
-                            farmerInstruction.setUid(currentuid);
-                            farmerInstruction.setUrl(url);
-                            farmerInstruction.setType("vv");
-
-                            // for video all user
-                            String id3 = db2.push().getKey();
-                            db1.child(id3).setValue(farmerInstruction);
-                            // for both
-                            String id4 = db3.push().getKey();
-                            db3.child(id4).setValue(farmerInstruction);
-
-                            progressBar.setVisibility(View.INVISIBLE);
-                            Toast.makeText(InstructionActivity.this, "Instruction Uploaded", Toast.LENGTH_SHORT).show();
-
-                        }else {
-                            Toast.makeText(InstructionActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                //when the task succesfully uploaded
+                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
                         }
 
 
+                        return reference.getDownloadUrl();
+                    }
+                    //validation if task is sucessfull
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+
+                        if (task.isSuccessful()) {
+                            Uri downloadUri = task.getResult();
+
+                            if (type.equals("iv")) {
+                                farmerInstruction.setDesc(desc);
+                                farmerInstruction.setName(name);
+                                farmerInstruction.setPostUri(downloadUri.toString());
+                                farmerInstruction.setTime(time);
+                                farmerInstruction.setUid(currentuid);
+                                farmerInstruction.setUrl(url);
+                                farmerInstruction.setType("iv");
+
+                                // for image
+                                String id = db1.push().getKey();
+                                db1.child(id).setValue(farmerInstruction);
+                                // for both
+                                String id1 = db3.push().getKey();
+                                db3.child(id1).setValue(farmerInstruction);
+
+                                progressBar.setVisibility(View.INVISIBLE);
+                                Toast.makeText(InstructionActivity.this, "Instruction Uploaded", Toast.LENGTH_SHORT).show();
+
+
+                            } else if (type.equals("vv")) {
+
+                                farmerInstruction.setDesc(desc);
+                                farmerInstruction.setName(name);
+                                farmerInstruction.setPostUri(downloadUri.toString());
+                                farmerInstruction.setTime(time);
+                                farmerInstruction.setUid(currentuid);
+                                farmerInstruction.setUrl(url);
+                                farmerInstruction.setType("vv");
+
+                                // for video
+                                String id3 = db2.push().getKey();
+                                db1.child(id3).setValue(farmerInstruction);
+
+                                // for both
+                                String id4 = db3.push().getKey();
+                                db3.child(id4).setValue(farmerInstruction);
+
+                                progressBar.setVisibility(View.INVISIBLE);
+                                Toast.makeText(InstructionActivity.this, "Instruction Uploaded", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                Toast.makeText(InstructionActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }
 
                     }
+                });
 
-                }
-            });
+            } else {
+                Toast.makeText(this, "Please enter all Details", Toast.LENGTH_SHORT).show();
+            }
 
-        }else {
-            Toast.makeText(this, "Please enter all Details", Toast.LENGTH_SHORT).show();
+
         }
 
 
@@ -296,7 +295,3 @@ public class InstructionActivity extends AppCompatActivity {
     }
 
 
-
-
-
-    }

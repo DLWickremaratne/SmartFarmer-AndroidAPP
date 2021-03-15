@@ -38,12 +38,15 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.3.3'
     implementation 'androidx.navigation:navigation-ui:2.3.3'
 
+
     implementation 'com.google.android.exoplayer:exoplayer:2.10.8'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.10.8'
     implementation 'com.google.android.exoplayer:exoplayer-dash:2.10.8'
     implementation 'com.google.android.exoplayer:exoplayer-hls:2.10.8'
     implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.10.8'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.10.8'
+
+
 
 
     implementation 'com.google.firebase:firebase-database:19.5.1'
