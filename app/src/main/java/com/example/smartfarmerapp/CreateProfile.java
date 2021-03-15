@@ -106,7 +106,7 @@ public class CreateProfile extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        try {
+
 
             if (requestCode == PICK_IMAGE || requestCode== RESULT_OK ||
                     data != null || data.getData() !=null) {
@@ -115,10 +115,8 @@ public class CreateProfile extends AppCompatActivity {
                 Picasso.get().load(imageUri).into(imageView);
             }
 
-        }catch (Exception e){
-            Toast.makeText(this, "Error"+e, Toast.LENGTH_SHORT).show();
 
-        }
+
 
 
 
@@ -184,15 +182,17 @@ public class CreateProfile extends AppCompatActivity {
                                         progressBar.setVisibility(View.INVISIBLE);
                                         Toast.makeText(CreateProfile.this, "Profile Created", Toast.LENGTH_SHORT).show();
 
-
                                         Handler handler = new Handler();
                                         handler.postDelayed(new Runnable() {
                                             @Override
                                             public void run() {
-                                                Intent intent = new Intent(CreateProfile.this, Fragment1.class);
+                                                Intent intent = new Intent(CreateProfile.this,Fragment1.class);
                                                 startActivity(intent);
                                             }
-                                        }, 2000);
+                                        },2000);
+
+
+
                                     }
 
 

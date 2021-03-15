@@ -52,7 +52,7 @@ public class AskActivity extends AppCompatActivity {
         String currentUserid = user.getUid();
 
         editText = findViewById(R.id.ask_et_question);
-        imageView =findViewById(R.id.iv_ask);
+
         button = findViewById(R.id.btn_submit);
         documentReference = db.collection("user").document(currentUserid);
         AllQuestions =  database.getReference("All Questions");
@@ -76,17 +76,6 @@ public class AskActivity extends AppCompatActivity {
 
                 String time = savedate +":"+ savetime;
 
-                imageView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent();
-                        intent.setType("image/*");
-                        intent.setAction(Intent.ACTION_GET_CONTENT);
-                        startActivityForResult(intent,PICK_IMAGE);
-
-
-                    }
-                });
 
 
                 if (question !=null){
@@ -119,27 +108,11 @@ public class AskActivity extends AppCompatActivity {
 
 
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        try {
-
-            if (requestCode == PICK_IMAGE || requestCode== RESULT_OK ||
-                    data != null || data.getData() !=null) {
-                imageUri = data.getData();
-
-                Picasso.get().load(imageUri).into(imageView);
-            }
-
-        }catch (Exception e){
-            Toast.makeText(this, "Error"+e, Toast.LENGTH_SHORT).show();
-
-        }
 
 
 
-    }
+
+
     @Override
     protected void onStart() {
         super.onStart();
