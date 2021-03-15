@@ -22,7 +22,7 @@ import com.squareup.picasso.Picasso;
 public class Viewholder_Question extends RecyclerView.ViewHolder {
 
     ImageView imageView;
-    TextView time_result,name_result,question_result,deletebtn,replybtn;
+    TextView time_result,name_result,question_result,deletebtn,replybtn,replybtn1;
     ImageButton fvrt_btn;
     DatabaseReference favouriteref;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -81,7 +81,7 @@ public class Viewholder_Question extends RecyclerView.ViewHolder {
         ImageView imageView = itemView.findViewById(R.id.related_iv_que_item);
         TextView nametv = itemView.findViewById(R.id.related_name_que_item_tv);
         TextView quetv = itemView.findViewById(R.id.related_que_item_tv);
-        TextView replybtn = itemView.findViewById(R.id.related_reply_item_que);
+        replybtn1 = itemView.findViewById(R.id.related_reply_item_que);
 
         Picasso.get().load(url).into(imageView);
         nametv.setText(name);
