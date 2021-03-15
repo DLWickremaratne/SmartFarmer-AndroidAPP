@@ -1,11 +1,13 @@
 package com.example.smartfarmerapp;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,7 +30,7 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
     Button button;
     RecyclerView recyclerView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference reference,likeref;
+    DatabaseReference reference, likeref;
     Boolean likechecker = false;
 
 
@@ -36,7 +38,7 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment3,container,false);
+        View view = inflater.inflate(R.layout.fragment3, container, false);
         return view;
     }
 
@@ -76,10 +78,10 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
 
         FirebaseRecyclerOptions<FarmerInstruction> options =
                 new FirebaseRecyclerOptions.Builder<FarmerInstruction>()
-                        .setQuery(reference,FarmerInstruction.class)
+                        .setQuery(reference, FarmerInstruction.class)
                         .build();
 
-        FirebaseRecyclerAdapter<FarmerInstruction,InstructionViewholder> firebaseRecyclerAdapter =
+        FirebaseRecyclerAdapter<FarmerInstruction, InstructionViewholder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<FarmerInstruction, InstructionViewholder>(options) {
                     @Override
                     protected void onBindViewHolder(@NonNull InstructionViewholder holder, int position, @NonNull FarmerInstruction model) {
@@ -89,21 +91,25 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
                         String currentUserid = user.getUid();
 
                         final String postkey = getRef(position).getKey();
-                        holder.SetPost(getActivity(),model.getName(),model.getUrl(),model.getPostUri(),model.getTime()
-                                ,model.getUid(),model.getType(),model.getDesc());
+                        holder.SetPost(getActivity(), model.getName(), model.getUrl(), model.getPostUri(), model.getTime()
+                                , model.getUid(), model.getType(), model.getDesc());
 
 
-
-                        /*final String que = getItem(position).getQuestion();
+                        //final String que = getItem(position).getQuestion();
                         final String name = getItem(position).getName();
                         final String url = getItem(position).getUrl();
                         final String time = getItem(position).getTime();
-                        final String userid = getItem(position).getUserid();*/
-
-
+                        final String userid = getItem(position).getUid();
 
 
                         holder.likeschecker(postkey);
+
+                        holder.menuoptions.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                showDialog(name, url, time, userid);
+                            }
+                        });
                         holder.likebtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -148,7 +154,7 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
                     @Override
                     public InstructionViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                         View view = LayoutInflater.from(parent.getContext())
-                                .inflate(R.layout.instruction_layout,parent,false);
+                                .inflate(R.layout.instruction_layout, parent, false);
 
                         return new InstructionViewholder(view);
                     }
@@ -158,7 +164,22 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
         recyclerView.setAdapter(firebaseRecyclerAdapter);
 
 
+    }
 
+    void showDialog(String name, String url, String time, String userid) {
+
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+        View view = inflater.inflate(R.layout.instruction_options, null);
+        TextView download = view.findViewById(R.id.download_tv_ins);
+        TextView share = view.findViewById(R.id.share_tv_ins);
+        TextView copyurl = view.findViewById(R.id.copyurl_tv_ins);
+
+
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
+                .setView(view)
+                .create();
+
+        alertDialog.show();
 
     }
 }
