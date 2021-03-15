@@ -19,6 +19,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/smartfarmerapp/Fragment3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/smartfarmerapp/Fragment3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/smartfarmerapp/InstructionViewholder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/smartfarmerapp/InstructionViewholder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/instruction_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/instruction_layout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/instruction_options.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/instruction_options.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615824215941</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Instruction options">
+      <created>1615827741662</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1615827741662</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -256,11 +266,11 @@
     </state>
     <state x="2460" y="275" key="AndroidCreateResourceFileDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615823954088" />
     <state x="540" y="275" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615221352946" />
-    <state x="2429" y="89" key="CommitChangelistDialog2" timestamp="1615824214236">
+    <state x="2429" y="89" key="CommitChangelistDialog2" timestamp="1615827738916">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="509" y="89" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1615820970258" />
-    <state x="2429" y="89" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615824214236" />
+    <state x="2429" y="89" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615827738916" />
     <state width="1876" height="281" key="GridCell.Tab.0.bottom" timestamp="1615825331067">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -281,11 +291,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2381" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615191450969" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1615824224007">
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1615827745292">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1615822535739" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615824224007" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615827745292" />
     <state x="2536" y="240" key="run.anything.popup" timestamp="1615304626892">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

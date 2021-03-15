@@ -1,8 +1,14 @@
 package com.example.smartfarmerapp;
 
 import android.app.AlertDialog;
+import android.app.DownloadManager;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +30,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class Fragment3 extends Fragment implements View.OnClickListener {
@@ -32,6 +39,9 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference, likeref;
     Boolean likechecker = false;
+
+    DatabaseReference db1,db2,db3;
+
 
 
     @Nullable
@@ -50,11 +60,15 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
         likeref = database.getReference("post likes");
         recyclerView = getActivity().findViewById(R.id.rv_posts);
         recyclerView.setHasFixedSize(true);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String currentuid = user.getUid();
+        db1 = database.getReference("All images").child(currentuid);
+        db2 = database.getReference("All videos").child(currentuid);
+        db3 = database.getReference("All posts");
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String currentuid = user.getUid();
+
 
 
         button.setOnClickListener(this);
@@ -95,11 +109,12 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
                                 , model.getUid(), model.getType(), model.getDesc());
 
 
-                        //final String que = getItem(position).getQuestion();
+                        final String url = getItem(position).getPostUri();
                         final String name = getItem(position).getName();
-                        final String url = getItem(position).getUrl();
+                        //final String url = getItem(position).getUrl();
                         final String time = getItem(position).getTime();
                         final String userid = getItem(position).getUid();
+                        final String type = getItem(position).getType();
 
 
                         holder.likeschecker(postkey);
@@ -107,7 +122,7 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
                         holder.menuoptions.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                showDialog(name, url, time, userid);
+                                showDialog(name, url, time, userid,type);
                             }
                         });
                         holder.likebtn.setOnClickListener(new View.OnClickListener() {
@@ -166,11 +181,12 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
 
     }
 
-    void showDialog(String name, String url, String time, String userid) {
+    void showDialog(String name, String url, String time, String userid, String type) {
 
         LayoutInflater inflater = LayoutInflater.from(getActivity());
         View view = inflater.inflate(R.layout.instruction_options, null);
-        TextView download = view.findViewById(R.id.download_tv_ins);
+
+        TextView delete = view.findViewById(R.id.delete_tv_post);
         TextView share = view.findViewById(R.id.share_tv_ins);
         TextView copyurl = view.findViewById(R.id.copyurl_tv_ins);
 
@@ -180,6 +196,107 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
                 .create();
 
         alertDialog.show();
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String currentuid = user.getUid();
+
+        if (userid.equals(currentuid)){
+            delete.setVisibility(View.VISIBLE);
+        }else {
+            delete.setVisibility(View.INVISIBLE);
+        }
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Query query = db1.orderByChild("time").equalTo(time);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot dataSnapshot1 : snapshot.getChildren()){
+                            dataSnapshot1.getRef().removeValue();
+
+                            Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                Query query2 = db2.orderByChild("time").equalTo(time);
+                query2.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot dataSnapshot1 : snapshot.getChildren()){
+                            dataSnapshot1.getRef().removeValue();
+
+                            Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                Query query3 = db3.orderByChild("time").equalTo(time);
+                query3.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot dataSnapshot1 : snapshot.getChildren()){
+                            dataSnapshot1.getRef().removeValue();
+
+                            Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                alertDialog.dismiss();
+
+
+            }
+        });
+
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String sharetext = name +"\n" +"\n"+ url;
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra(Intent.EXTRA_TEXT,sharetext);
+                intent.setType("text/plain");
+                startActivity(intent.createChooser(intent,"share via"));
+
+                alertDialog.dismiss();
+
+            }
+        });
+
+        copyurl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ClipboardManager cp = (ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("String",url);
+                cp.setPrimaryClip(clip);
+                clip.getDescription();
+                Toast.makeText(getActivity(), "", Toast.LENGTH_SHORT).show();
+
+                alertDialog.dismiss();
+
+
+            }
+        });
 
     }
 }

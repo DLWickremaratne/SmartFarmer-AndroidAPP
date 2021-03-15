@@ -9,9 +9,9 @@
 
 
     <Button
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Instruction"
+        android:text="Add New Instruction"
         android:background="@android:color/black"
         android:textColor="@android:color/white"
         android:textSize="15sp"

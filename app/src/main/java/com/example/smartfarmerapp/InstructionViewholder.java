@@ -40,7 +40,7 @@ public class InstructionViewholder extends RecyclerView.ViewHolder {
 
     ImageView imageViewprofile,iv_post,vv_post;
     TextView tv_name,tv_desc,tv_likes,tv_comment,tv_time,tv_nameprofile;
-    ImageButton likebtn,menuoptions,commentbtn;
+    ImageButton likebtn,menuoptions;
     DatabaseReference likesref;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     int likescount;
@@ -59,7 +59,7 @@ public class InstructionViewholder extends RecyclerView.ViewHolder {
         iv_post = itemView.findViewById(R.id.iv_post_item);
         //    tv_comment = itemView.findViewById(R.id.commentbutton_posts);
         tv_desc = itemView.findViewById(R.id.tv_desc_post);
-        commentbtn = itemView.findViewById(R.id.commentbutton_posts);
+
         likebtn = itemView.findViewById(R.id.likebutton_posts);
         tv_likes = itemView.findViewById(R.id.tv_likes_post);
         menuoptions = itemView.findViewById(R.id.morebutton_posts);

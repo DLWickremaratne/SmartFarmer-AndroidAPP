@@ -133,14 +133,7 @@
                 android:id="@+id/likebutton_posts"
                 android:layout_marginLeft="10dp"/>
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_comment"
-                android:background="@android:color/transparent"
-                android:padding="5dp"
-                android:id="@+id/commentbutton_posts"
-                android:layout_marginLeft="10dp"/>
+
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -167,15 +160,7 @@
             android:paddingStart="5dp"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="15sp"
-            android:text="Comments"
-            android:id="@+id/tv_comment_post"
-            android:paddingStart="5dp"
-            />
+        
 
 
 
