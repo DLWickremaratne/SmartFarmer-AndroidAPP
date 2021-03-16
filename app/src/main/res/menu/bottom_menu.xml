@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <item android:title="Profile"
-        android:icon="@drawable/ic_baseline_account_circle_24"
+
+    <item android:title="Guide"
+        android:icon="@drawable/ic_baseline_map_24"
         app:showAsAction="always"
-        android:id="@+id/profile_bottom"/>
+        android:id="@+id/start_bottom"/>
 
     <item android:title="Ask"
         android:icon="@drawable/ic_baseline_home_24"
@@ -18,15 +19,18 @@
         app:showAsAction="always"
         android:id="@+id/instruction_bottom"/>
 
-    <item android:title="Map"
-        android:icon="@drawable/ic_baseline_map_24"
-        app:showAsAction="always"
-        android:id="@+id/map_bottom"/>
+
 
     <item android:title="Store"
         android:icon="@drawable/ic_baseline_local_grocery_store_24"
         app:showAsAction="always"
         android:id="@+id/store_bottom"/>
+
+    <item android:title="Profile"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        app:showAsAction="always"
+        android:id="@+id/profile_bottom"/>
+
 
 
 

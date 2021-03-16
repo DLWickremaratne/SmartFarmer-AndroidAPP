@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(onNav);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,
-                new Fragment1()).commit();
+                new Fragment4()).commit();
 
 
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.instruction_bottom:
                     selected = new Fragment3();
                     break;
-                case R.id.map_bottom:
+                case R.id.start_bottom:
                     selected = new Fragment4();
                     break;
                 case R.id.store_bottom:
