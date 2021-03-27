@@ -12,4 +12,17 @@
         android:textSize="50sp"
         tools:ignore="MissingConstraints" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        android:id="@+id/recyler_menu"
+        android:paddingTop="60dp"
+        android:layout_margin="3dp"
+        tools:layout_editor_absoluteY="58dp" />
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

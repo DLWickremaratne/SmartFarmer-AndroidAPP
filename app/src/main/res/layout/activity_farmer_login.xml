@@ -79,15 +79,16 @@
         android:layout_margin="10dp"
         android:id="@+id/button_login"
         android:textSize="25sp"/>
+
     <Button
+        android:id="@+id/login_to_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:textColor="@android:color/holo_red_dark"
-        android:text="Sign Up"
         android:layout_margin="10dp"
-        android:id="@+id/login_to_signup"
-        android:textSize="25sp"/>
+        android:background="@android:color/white"
+        android:text="Sign Up"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="25sp" />
 
     <ProgressBar
         android:layout_width="match_parent"

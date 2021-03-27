@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SCAdminCategoryActivity">
+
+
+    <TextView
+        android:id="@+id/slogin_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:text="ADD NEW PRODUCT"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+
+        />
+
+
+    <LinearLayout
+        android:id="@+id/linear1_category_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/slogin_category"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="45dp">
+        
+        <ImageView
+            android:id="@+id/axe"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/axe"/>
+
+        <ImageView
+            android:id="@+id/seeds"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/seeds"/>
+
+        <ImageView
+            android:id="@+id/fatiliser"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/fatiliser"/>
+        <ImageView
+            android:id="@+id/tactor"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/tactor"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linear2_category_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear1_category_layout"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="45dp">
+
+        <ImageView
+            android:id="@+id/a"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/axe"/>
+
+        <ImageView
+            android:id="@+id/b"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/seeds"/>
+
+        <ImageView
+            android:id="@+id/c"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/fatiliser"/>
+        <ImageView
+            android:id="@+id/d"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/tactor"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@android:color/black"
+        app:cardBackgroundColor="@android:color/holo_green_dark"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -22,10 +22,10 @@
             android:textSize="20sp"
             android:textColor="@android:color/holo_green_light"
             android:textStyle="bold"
-            android:drawableStart="@drawable/ic_baseline_arrow_left_24"
+
             android:padding="5dp"
             android:paddingStart="5dp"
-            android:drawableLeft="@drawable/ic_baseline_arrow_left_24"
+
             android:paddingLeft="10dp"/>
 
         <androidx.cardview.widget.CardView
