@@ -74,6 +74,18 @@ public class Fragment5 extends Fragment  {
                 Picasso.get().load(model.getImage()).into(holder.imageView);
 
 
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        Intent intent = new Intent(getActivity(), ProductDetailsActivity.class);
+                        intent.putExtra("pid",model.getPid());
+                        startActivity(intent);
+
+                    }
+                });
+
+
             }
 
             @NonNull
