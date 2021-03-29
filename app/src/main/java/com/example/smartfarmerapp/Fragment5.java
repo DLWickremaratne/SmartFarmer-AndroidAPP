@@ -19,10 +19,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-public class Fragment5 extends Fragment  {
+public class Fragment5 extends Fragment implements View.OnClickListener {
 
     private DatabaseReference ProductsRef;
     private RecyclerView recyclerView;
+    Button button1;
 
 
 
@@ -34,6 +35,9 @@ public class Fragment5 extends Fragment  {
 
         View view = inflater.inflate(R.layout.fragment5,container,false);
         return view;
+
+
+
 
     }
 
@@ -50,10 +54,31 @@ public class Fragment5 extends Fragment  {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
+        button1 = getActivity().findViewById(R.id.Search);
+
+
+        button1.setOnClickListener(this);
+
+
+
 
 
 
     }
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.Search:
+                Intent intent = new Intent(getActivity(), SearchProduct.class);
+                startActivity(intent);
+        }
+
+
+    }
+
+
+
+
 
     @Override
     public void onStart() {
@@ -102,4 +127,7 @@ public class Fragment5 extends Fragment  {
 
 
     }
+
+
+
 }

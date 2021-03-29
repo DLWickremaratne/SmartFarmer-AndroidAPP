@@ -56,16 +56,12 @@ public class Splashscreen extends AppCompatActivity {
             @Override
             public void run() {
 
-                if (user !=null){
+
 
                     Intent intent = new Intent(Splashscreen.this,MainMenu.class);
                     startActivity(intent);
                     finish();
-                }else{
-                    Intent intent = new Intent(Splashscreen.this,farmerLoginActivity.class);
-                    startActivity(intent);
 
-                }
 
             }
         },4000);

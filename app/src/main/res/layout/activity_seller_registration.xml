@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Sellers.SellerRegistrationActivity">
+
+
+
+    <TextView
+        android:id="@+id/seller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Smart Farmer"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="40sp"
+        android:layout_marginBottom="7dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/seller_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seller Create Account"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="40sp"
+        android:layout_marginBottom="5dp"
+        android:textAlignment="center"
+        android:layout_below="@+id/seller"
+
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Full Name.."
+        android:layout_margin="10dp"
+        android:textColor="@android:color/white"
+        android:paddingStart="10dp"
+        android:drawableStart="@drawable/custom_email_input"
+        android:drawablePadding="10dp"
+        android:inputType="text"
+        android:textColorHint="@color/grey"
+        android:id="@+id/seller_name"
+        android:background="@drawable/custom_input"
+        android:drawableLeft="@drawable/custom_email_input"
+        android:paddingLeft="10dp"
+        android:layout_below="@+id/seller_title"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Phone.."
+        android:layout_margin="10dp"
+        android:paddingStart="10dp"
+        android:drawableStart="@drawable/custom_pass_input"
+        android:drawablePadding="10dp"
+        android:inputType="number"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/grey"
+        android:id="@+id/seller_phone"
+        android:background="@drawable/custom_input"
+        android:drawableLeft="@drawable/custom_pass_input"
+        android:paddingLeft="10dp"
+        android:layout_below="@+id/seller_name"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Email.."
+        android:layout_margin="10dp"
+        android:paddingStart="10dp"
+        android:drawableStart="@drawable/custom_pass_input"
+        android:drawablePadding="10dp"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/grey"
+        android:id="@+id/seller_email"
+        android:background="@drawable/custom_input"
+        android:drawableLeft="@drawable/custom_pass_input"
+        android:paddingLeft="10dp"
+        android:layout_below="@+id/seller_phone"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Password.."
+        android:layout_margin="10dp"
+        android:paddingStart="10dp"
+        android:drawableStart="@drawable/custom_pass_input"
+        android:drawablePadding="10dp"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/grey"
+        android:id="@+id/seller_password"
+        android:background="@drawable/custom_input"
+        android:drawableLeft="@drawable/custom_pass_input"
+        android:paddingLeft="10dp"
+        android:layout_below="@+id/seller_email"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Shop - Business Address.."
+        android:layout_margin="10dp"
+        android:paddingStart="10dp"
+        android:drawableStart="@drawable/custom_pass_input"
+        android:drawablePadding="10dp"
+        android:inputType="text"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/grey"
+        android:id="@+id/seller_address"
+        android:background="@drawable/custom_input"
+        android:drawableLeft="@drawable/custom_pass_input"
+        android:paddingLeft="10dp"
+        android:layout_below="@+id/seller_password"/>
+
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:textColor="@android:color/holo_green_dark"
+        android:text="Register"
+        android:layout_margin="10dp"
+        android:id="@+id/seller_rejister_btn"
+        android:layout_below="@+id/seller_address"
+        android:textSize="20dp"
+        android:textAllCaps="false"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:textColor="@android:color/holo_green_dark"
+        android:text="Already have an Account"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/seller_already_have_account_btn"
+        android:textAllCaps="false"
+        android:layout_below="@+id/seller_rejister_btn"
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"/>
+
+
+
+
+
+</RelativeLayout>
