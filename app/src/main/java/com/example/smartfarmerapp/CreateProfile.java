@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -54,6 +57,8 @@ public class CreateProfile extends AppCompatActivity {
     All_User_Member member;
     String currentUserId;
     private static final int PICK_IMAGE =1;
+    ImageButton buttonlog;
+    FirebaseAuth mAuth;
 
 
 
@@ -62,6 +67,9 @@ public class CreateProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_profile);
+
+
+
 
         member = new All_User_Member();
         imageView =findViewById(R.id.iv_cp);
@@ -72,6 +80,7 @@ public class CreateProfile extends AppCompatActivity {
         etAddress =findViewById(R.id.et_Adress_cp);
         button =findViewById(R.id.btn_cp);
         progressBar =findViewById(R.id.progressbar_cp);
+        mAuth = FirebaseAuth.getInstance();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         currentUserId = user.getUid();
@@ -100,6 +109,26 @@ public class CreateProfile extends AppCompatActivity {
                 }
             });
 
+        buttonlog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
+
+    }
+
+    private void logout() {
+
+                /*("Logout", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        mAuth.signOut();
+                        startActivity(new Intent(CreateProfile.this,MainMenu.class));
+
+                    }
+                })
+*/
     }
 
     @Override

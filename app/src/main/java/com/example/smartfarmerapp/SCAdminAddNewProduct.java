@@ -55,6 +55,7 @@ public class SCAdminAddNewProduct extends AppCompatActivity {
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
         AddNewProductButton = (Button) findViewById(R.id.add_new_product);
+
         InputProductImage = (ImageView) findViewById(R.id.select_product_image);
         InputProductName = (EditText) findViewById(R.id.product_name);
         InputProductDescription = (EditText) findViewById(R.id.product_description);

@@ -99,10 +99,11 @@ public class farmerLoginActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void sendtoMain() {
-        Intent intent = new Intent(farmerLoginActivity.this,Splashscreen.class);
+        Intent intent = new Intent(farmerLoginActivity.this,MainActivity.class);
         startActivity(intent);
         finish();
     }

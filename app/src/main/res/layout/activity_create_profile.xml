@@ -1,118 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".CreateProfile">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Create Profile"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="20sp"
-        android:textAlignment="center"
+        android:layout_margin="10dp"
         android:gravity="center_horizontal"
-        android:layout_margin="10dp"/>
+        android:text="Create Profile"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:id="@+id/cardView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         app:cardCornerRadius="75dp"
         app:cardPreventCornerOverlap="false"
-        android:layout_marginBottom="10dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:id="@+id/iv_cp"
+            android:layout_width="169dp"
+            android:layout_height="164dp"
             android:background="@drawable/ic_baseline_person_pin_24"
             android:clickable="true"
-            android:scaleType="fitCenter"/>
-
-
-
+            android:scaleType="fitCenter" />
     </androidx.cardview.widget.CardView>
-    
+
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Name"
         android:id="@+id/et_name_cp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_marginTop="140dp"
         android:drawableStart="@drawable/ic_baseline_perm_identity_24"
-        android:paddingStart="5dp"
+        android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
         android:drawablePadding="7dp"
-        android:layout_margin="4dp"
-        android:textColor="@android:color/black"
+        android:hint="Name"
+        android:paddingStart="5dp"
         android:paddingLeft="5dp"
-        android:drawableLeft="@drawable/ic_baseline_perm_identity_24" />
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4"
+        tools:layout_editor_absoluteX="10dp" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Profession"
-        android:drawableStart="@drawable/ic_baseline_work_24"
-        android:paddingStart="5dp"
-        android:drawablePadding="7dp"
         android:id="@+id/et_Profession_cp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:textColor="@android:color/black"
+        android:drawableStart="@drawable/ic_baseline_work_24"
         android:drawableLeft="@drawable/ic_baseline_work_24"
-        android:paddingLeft="5dp" />
+        android:drawablePadding="7dp"
+        android:hint="Profession"
+        android:paddingStart="5dp"
+        android:paddingLeft="5dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cp"
+        app:layout_constraintTop_toBottomOf="@+id/et_city_cp"
+        app:layout_constraintVertical_bias="0.116"
+        tools:layout_editor_absoluteX="-8dp" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
         android:id="@+id/et_email_cp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
         android:drawableStart="@drawable/ic_baseline_person_pin_24"
-        android:paddingStart="5dp"
-        android:drawablePadding="7dp"
-        android:layout_margin="4dp"
-        android:textColor="@android:color/black"
         android:drawableLeft="@drawable/ic_baseline_person_pin_24"
-        android:paddingLeft="5dp" />
+        android:drawablePadding="7dp"
+        android:hint="Email"
+        android:paddingStart="5dp"
+        android:paddingLeft="5dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/et_name_cp"
+        tools:layout_editor_absoluteX="4dp" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="City"
         android:id="@+id/et_city_cp"
-        android:drawableStart="@drawable/ic_baseline_location_city_24"
-        android:paddingStart="5dp"
-        android:drawablePadding="7dp"
-        android:layout_margin="4dp"
-        android:textColor="@android:color/black"
-        android:drawableLeft="@drawable/ic_baseline_location_city_24"
-        android:paddingLeft="5dp" />
-
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Address"
-        android:id="@+id/et_Adress_cp"
-        android:drawableStart="@drawable/ic_baseline_location_on_24"
-        android:paddingStart="5dp"
-        android:drawablePadding="7dp"
         android:layout_margin="4dp"
+        android:drawableStart="@drawable/ic_baseline_location_city_24"
+        android:drawableLeft="@drawable/ic_baseline_location_city_24"
+        android:drawablePadding="7dp"
+        android:hint="City"
+        android:paddingStart="5dp"
+        android:paddingLeft="5dp"
         android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/et_Adress_cp"
+        tools:layout_editor_absoluteX="48dp" />
+
+    <EditText
+        android:id="@+id/et_Adress_cp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:drawableStart="@drawable/ic_baseline_location_on_24"
         android:drawableLeft="@drawable/ic_baseline_location_on_24"
-        android:paddingLeft="5dp" />
+        android:drawablePadding="7dp"
+        android:hint="Address"
+        android:paddingStart="5dp"
+        android:paddingLeft="5dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/et_email_cp"
+        tools:layout_editor_absoluteX="10dp" />
 
     <Button
+        android:id="@+id/btn_cp"
         android:layout_width="match_parent"
-            android:text="Save Profile"
-        android:background="@android:color/holo_red_light"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@android:color/darker_gray"
+        android:text="Save Profile"
+
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        android:layout_margin="10dp"
-        android:layout_marginTop="10dp"
-
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_cp"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="81dp" />
 
     <ProgressBar
         android:layout_width="wrap_content"
@@ -122,14 +142,4 @@
         android:id="@+id/progressbar_cp"/>
 
 
-
-
-
-
-
-
-
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

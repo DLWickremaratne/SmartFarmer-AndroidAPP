@@ -6,15 +6,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Related">
-    <TextView
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Related List"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:padding="5dp"
-        android:textStyle="bold"/>
+        android:layout_height="50dp"
+        app:cardBackgroundColor="@android:color/darker_gray"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="2dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Related List"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

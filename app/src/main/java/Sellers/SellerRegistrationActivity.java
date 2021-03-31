@@ -71,11 +71,11 @@ public class SellerRegistrationActivity extends AppCompatActivity {
 
     private void registerSeller() {
 
-        String name = nameInput.getText().toString();
-        String phone = phoneInput.getText().toString();
-        String email = emailInput.getText().toString();
+        final String name = nameInput.getText().toString();
+        final String phone = phoneInput.getText().toString();
+        final String email = emailInput.getText().toString();
         String password = passwordInput.getText().toString();
-        String address = addressInput.getText().toString();
+        final String address = addressInput.getText().toString();
 
         if (!name.equals("") && !phone.equals("") && !email.equals("") && !password.equals("") && !address.equals("")){
 

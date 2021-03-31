@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:text="Related"
             android:textSize="20sp"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="@android:color/black"
             android:drawableStart="@drawable/ic_baseline_bookmarks_24"
             android:drawablePadding="10dp"
             android:padding="10dp"/>
@@ -37,7 +37,7 @@
             android:layout_height="match_parent"
             android:text="Your Questions"
             android:textSize="20sp"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="@android:color/black"
             android:drawableStart="@drawable/ic_baseline_restore_24"
             android:drawablePadding="10dp"
             android:padding="10dp"/>

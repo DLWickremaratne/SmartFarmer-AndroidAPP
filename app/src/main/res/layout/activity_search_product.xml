@@ -12,7 +12,7 @@
         android:id="@+id/r5"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@android:color/holo_red_light"
+        android:background="@android:color/darker_gray"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
 

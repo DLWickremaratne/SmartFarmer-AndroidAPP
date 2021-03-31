@@ -115,12 +115,12 @@ public class farmerRegisterActivity extends AppCompatActivity {
     }
 
     private void sendtoMain() {
-        Intent intent = new Intent(farmerRegisterActivity.this,Splashscreen.class);
+        Intent intent = new Intent(farmerRegisterActivity.this,MainActivity.class);
         startActivity(intent);
         finish();
     }
 
-    @Override
+    /*@Override
     protected void onStart() {
         super.onStart();
 
@@ -129,5 +129,5 @@ public class farmerRegisterActivity extends AppCompatActivity {
             sendtoMain();
         }
 
-    }
+    }*/
 }

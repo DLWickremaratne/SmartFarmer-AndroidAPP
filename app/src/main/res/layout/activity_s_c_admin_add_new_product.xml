@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SCAdminAddNewProduct">
+    tools:context=".SCAdminAddNewProduct"
+    android:background="@android:color/darker_gray">
 
 
     <ImageView
@@ -70,7 +71,7 @@
         android:textSize="18sp"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:background="@drawable/custom_input_question"/>
+        android:background="@android:color/black"/>
 
 
 

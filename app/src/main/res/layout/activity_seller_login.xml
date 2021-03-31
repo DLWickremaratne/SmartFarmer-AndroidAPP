@@ -1,86 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/black"
     tools:context="Sellers.SellerLogin">
+
 
     <TextView
         android:id="@+id/seller"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:text="Smart Farmer"
+        android:textAlignment="center"
         android:textColor="@android:color/holo_green_light"
         android:textSize="40sp"
-        android:layout_marginBottom="7dp"
-        android:textAlignment="center"
-        android:layout_marginTop="40dp"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/seller_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seller Login Form"
-        android:textColor="@android:color/holo_green_light"
-        android:textSize="40sp"
-        android:layout_marginBottom="5dp"
-        android:textAlignment="center"
         android:layout_below="@+id/seller"
+        android:gravity="center_horizontal"
+        android:text="Seller Login Form"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_green_light"
 
-        android:gravity="center_horizontal" />
+        android:textSize="40sp"
+        app:layout_constraintTop_toBottomOf="@+id/seller"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:hint="Email.."
-        android:layout_margin="10dp"
-        android:paddingStart="10dp"
-        android:drawableStart="@drawable/custom_pass_input"
-        android:drawablePadding="10dp"
-        android:inputType="textEmailAddress"
-        android:textColor="@android:color/white"
-        android:textColorHint="@color/grey"
         android:id="@+id/seller_login_email"
-        android:background="@drawable/custom_input"
-        android:drawableLeft="@drawable/custom_pass_input"
-        android:paddingLeft="10dp"
-        android:layout_below="@+id/seller_title"/>
-
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:hint="Password.."
-        android:layout_margin="10dp"
-        android:paddingStart="10dp"
-        android:drawableStart="@drawable/custom_pass_input"
+        android:layout_below="@+id/seller_title"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_email_input"
+        android:drawableLeft="@drawable/custom_email_input"
         android:drawablePadding="10dp"
+        android:hint="Email.."
         android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
         android:textColor="@android:color/white"
         android:textColorHint="@color/grey"
-        android:id="@+id/seller_login_password"
-        android:background="@drawable/custom_input"
-        android:drawableLeft="@drawable/custom_pass_input"
-        android:paddingLeft="10dp"
-        android:layout_below="@+id/seller_login_email"/>
+        app:layout_constraintTop_toBottomOf="@+id/seller_title"
+        tools:layout_editor_absoluteX="0dp" />
 
+    <EditText
+        android:id="@+id/seller_login_password"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/seller_login_email"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_pass_input"
+        android:drawableLeft="@drawable/custom_pass_input"
+        android:drawablePadding="10dp"
+        android:hint="Password.."
+        android:inputType="textPassword"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/seller_login_btn"
+        app:layout_constraintTop_toBottomOf="@+id/seller_login_email"
+        app:layout_constraintVertical_bias="0.109"
+        tools:layout_editor_absoluteX="-16dp" />
 
     <Button
+        android:id="@+id/seller_login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:textColor="@android:color/holo_green_dark"
-        android:text="Login"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="25dp"
-        android:id="@+id/seller_login_btn"
         android:layout_below="@+id/seller_login_password"
+        android:background="@android:color/darker_gray"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
-        android:textAllCaps="false"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

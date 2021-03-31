@@ -1,38 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white"
-    tools:context=".AskActivity">
+    android:background="@android:color/black"
+    tools:context=".AskActivity"
+    >
 
     <EditText
+        android:id="@+id/answer_et"
         android:layout_width="match_parent"
         android:layout_height="213dp"
-        android:paddingStart="20dp"
-        android:textSize="20sp"
-        android:padding="10dp"
-        android:id="@+id/answer_et"
-        android:background="@drawable/custom_input_question"
-        android:textStyle="bold"
-        android:hint="Answer..."
-        android:textColorHint="@android:color/holo_red_light"
-        android:textColor="@android:color/black"
         android:layout_margin="20dp"
-        android:paddingLeft="20dp" />
+        android:background="@drawable/custom_input_question"
+        android:hint="Answer..."
+        android:padding="10dp"
+        android:paddingStart="20dp"
+        android:paddingLeft="20dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/holo_red_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:layout_margin="20dp"
         android:id="@+id/btn_answer_submit"
-        android:background="@android:color/holo_red_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@android:color/white"
+        android:layout_margin="20dp"
+        android:background="@android:color/darker_gray"
+        android:text="Submit"
+        android:textColor="@android:color/black"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

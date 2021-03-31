@@ -1,97 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/black"
     tools:context=".SCAdminCategoryActivity">
 
 
-    <TextView
-        android:id="@+id/slogin_category"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:text="ADD NEW PRODUCT"
-        android:textAlignment="center"
-        android:textSize="26sp"
-        android:textStyle="bold"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="@android:color/darker_gray"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="2dp">
 
-        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:text="ADDING NEW PRODUCTS"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+    </androidx.cardview.widget.CardView>
 
 
     <LinearLayout
-        android:id="@+id/linear1_category_layout"
+
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/slogin_category"
-        android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginTop="45dp">
-        
+        android:layout_marginTop="44dp"
+        android:background="@android:color/black"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        tools:layout_editor_absoluteX="16dp">
+
         <ImageView
             android:id="@+id/axe"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:src="@drawable/axe"/>
+            android:layout_marginRight="40dp"
+            android:src="@drawable/axe" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Add Equipments"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+
+
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:background="@android:color/black"
+
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        tools:layout_editor_absoluteX="-16dp">
 
         <ImageView
             android:id="@+id/seeds"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:src="@drawable/seeds"/>
+            android:layout_marginRight="40dp"
+            android:src="@drawable/seeds" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Add Seeds"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:background="@android:color/black"
+
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="0dp">
 
         <ImageView
             android:id="@+id/fatiliser"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:src="@drawable/fatiliser"/>
-        <ImageView
-            android:id="@+id/tactor"
+            android:src="@drawable/fatiliser" />
+
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:src="@drawable/tactor"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            android:text="Add Fertilizers"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/linear2_category_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linear1_category_layout"
-        android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="36dp"
+        android:background="@android:color/black"
+
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        tools:layout_editor_absoluteX="0dp">
 
         <ImageView
-            android:id="@+id/a"
+            android:id="@+id/tactor"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:src="@drawable/axe"/>
+            android:src="@drawable/tactor" />
 
-        <ImageView
-            android:id="@+id/b"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:src="@drawable/seeds"/>
-
-        <ImageView
-            android:id="@+id/c"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:src="@drawable/fatiliser"/>
-        <ImageView
-            android:id="@+id/d"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:src="@drawable/tactor"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            android:text="Add Vehicles"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click icons to add products"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/logout_addproduct"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear2_category_layout" />
+
+    <Button
+        android:id="@+id/logout_addproduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:text="LOGOUT"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="4dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

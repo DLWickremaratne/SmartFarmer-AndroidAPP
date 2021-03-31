@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@android:color/white"
+    android:background="@android:color/black"
     android:layout_height="match_parent"
-    tools:context=".Splashscreen">
+    tools:context=".Splashscreen"
+    >
 
     <ImageView
         android:id="@+id/iv_logo_splash"

@@ -45,16 +45,12 @@ public class MainMenu extends AppCompatActivity   {
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         Handler handler =new Handler();
 
-        if (user !=null){
 
-            Intent intent = new Intent(MainMenu.this,MainActivity.class);
-            startActivity(intent);
-            finish();
-        }else{
+
             Intent intent = new Intent(MainMenu.this,farmerLoginActivity.class);
             startActivity(intent);
+            finish();
 
-        }
 
     }
 

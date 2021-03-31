@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@android:color/white"
+    android:background="@android:color/black"
     android:layout_height="match_parent">
 
 
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="5dp"
-        app:cardBackgroundColor="@android:color/white">
+        app:cardBackgroundColor="@android:color/darker_gray">
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PROFILE"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="@android:color/black"
             android:layout_margin="10dp"
             android:textSize="20sp"
             android:layout_gravity="center_horizontal"
@@ -54,6 +54,7 @@
         android:layout_height="110dp"
         android:gravity="center"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
@@ -92,7 +93,7 @@
                 android:paddingStart="10dp"
                 android:paddingLeft="10dp"
                 android:textAlignment="viewStart"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:gravity="start"
                 android:textSize="25sp"/>
 
@@ -105,7 +106,7 @@
                 android:paddingStart="10dp"
                 android:paddingLeft="10dp"
                 android:textAlignment="viewStart"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/white"
                 android:gravity="start"
                 android:textSize="15sp"/>
 
@@ -129,6 +130,7 @@
         android:textAlignment="viewStart"
         android:textColor="@android:color/black"
         android:gravity="start"
+        android:layout_marginTop="20dp"
         android:textSize="15sp"/>
 
     <TextView
@@ -138,6 +140,7 @@
         android:textSize="15sp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:padding="5dp"
         android:textColor="@android:color/darker_gray"
         android:drawablePadding="20dp"
@@ -153,7 +156,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:padding="5dp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:drawablePadding="20dp"
         android:paddingStart="20dp"
         android:paddingLeft="20dp" />
@@ -163,7 +166,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="20dp"
-        android:background="@android:color/black"
+        android:background="@android:color/white"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="20dp" />
 
@@ -189,7 +192,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:padding="5dp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:drawablePadding="20dp"
         android:paddingStart="20dp"
         android:paddingLeft="20dp" />
@@ -199,7 +202,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="20dp"
-        android:background="@android:color/black"
+        android:background="@android:color/white"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="20dp" />
     <TextView
@@ -224,7 +227,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:padding="5dp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:drawablePadding="20dp"
         android:paddingStart="20dp"
         android:paddingLeft="20dp" />
@@ -234,47 +237,13 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="20dp"
-        android:background="@android:color/black"
+        android:background="@android:color/white"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="20dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="30dp"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ADDED THINGS"
-            android:padding="5dp"
-            android:drawablePadding="5dp"
-            android:drawableStart="@drawable/ic_baseline_add_to_drive_24"
-            android:clickable="true"
-            android:id="@+id/tv_added_f1"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@android:color/black"
-            android:drawableLeft="@drawable/ic_baseline_add_to_drive_24" />
 
 
 
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD Questions"
-        android:padding="10dp"
-        android:drawablePadding="5dp"
-        android:drawableStart="@drawable/ic_baseline_add_to_drive_24"
-        android:clickable="true"
-        android:id="@+id/tv_addquestions_f1"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@android:color/black"
-        android:drawableLeft="@drawable/ic_baseline_add_to_drive_24" />
 
 
 
