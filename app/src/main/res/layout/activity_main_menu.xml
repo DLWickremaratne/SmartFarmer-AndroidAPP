@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="@drawable/farmerwallpaper"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainMenu">
@@ -15,27 +15,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:background="@android:color/black"
         android:text="Smart Farmer"
         android:textAlignment="center"
         android:textColor="@android:color/holo_green_light"
-        android:textSize="40sp"
-        app:layout_constraintTop_toBottomOf="@+id/seller_title"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <TextView
-        android:id="@+id/seller_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:gravity="center_horizontal"
-        android:text="Seller Login Form"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_green_light"
-
-        android:textSize="40sp"
-
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_farmerlogin"
@@ -43,15 +31,17 @@
         android:layout_height="wrap_content"
 
         android:layout_gravity="center"
-        android:layout_marginTop="296dp"
+        android:layout_marginTop="316dp"
         android:background="@android:color/darker_gray"
         android:text="Farmer Login"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_sellerlogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seller"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btn_sellerlogin"
@@ -65,9 +55,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_farmerlogin"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
