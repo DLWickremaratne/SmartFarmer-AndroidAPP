@@ -109,27 +109,11 @@ public class CreateProfile extends AppCompatActivity {
                 }
             });
 
-        buttonlog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logout();
-            }
-        });
+
 
     }
 
-    private void logout() {
 
-                /*("Logout", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {
-                        mAuth.signOut();
-                        startActivity(new Intent(CreateProfile.this,MainMenu.class));
-
-                    }
-                })
-*/
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
