@@ -34,7 +34,7 @@ public class Fragment5 extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment5,container,false);
-        return view;
+        return view;//
 
 
 

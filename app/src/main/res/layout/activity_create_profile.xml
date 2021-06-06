@@ -8,6 +8,9 @@
     android:gravity="center"
     tools:context=".CreateProfile">
 
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -121,15 +124,18 @@
         android:visibility="invisible"
         android:id="@+id/progressbar_cp"/>
 
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="59dp"
+        android:layout_height="31dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        android:text="LogOut"
 
 
-
-
-
-
-
-
-
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
 
 
 </LinearLayout>

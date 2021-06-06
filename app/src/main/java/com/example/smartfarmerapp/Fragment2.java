@@ -56,9 +56,10 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+        super.onActivityCreated(savedInstanceState);// fragment's activity has been created
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String currentUserid = user.getUid();
+        String currentUserid = user.getUid();////Get the currently signed-in user
 
         recyclerView = getActivity().findViewById(R.id.rv_f2);
         recyclerView.setHasFixedSize(true);
@@ -75,13 +76,13 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
         reference = db.collection("user").document(currentUserid);
 
 
-        fb.setOnClickListener(this);
+        fb.setOnClickListener(this); //floating action bar
         imageView.setOnClickListener(this);
 
         FirebaseRecyclerOptions<FarmerQuestion> options =
                 new FirebaseRecyclerOptions.Builder<FarmerQuestion>()
                 .setQuery(databaseReference,FarmerQuestion.class)
-                .build();
+                .build();//add the things
 
         FirebaseRecyclerAdapter<FarmerQuestion,Viewholder_Question> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<FarmerQuestion, Viewholder_Question>(options) {
@@ -197,7 +198,7 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view) { //Called when a view has been clicked.
 
         switch (view.getId()) {
             case R.id.iv_f2:
@@ -206,8 +207,8 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
 
                 break;
             case R.id.floatingActionButton:
-                Intent intent = new Intent(getActivity(), AskActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(getActivity(), AskActivity.class); //send user
+                startActivity(intent); //go to ask activity
 
                 break;
         }
@@ -215,9 +216,9 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
 
     }
     @Override
-    public void onStart() {
+    public void onStart() { // the activity is becoming visible to the user
         super.onStart();
-        reference.get()
+        reference.get() //retrieve data
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {

@@ -44,7 +44,7 @@ public class CreateProfile extends AppCompatActivity {
 
 
     EditText etname,etProfession,etEmail,etCity,etAddress;
-    Button button;
+    Button button,cp_logout;
     ImageView imageView;
     ProgressBar progressBar;
     Uri imageUri;
@@ -81,6 +81,8 @@ public class CreateProfile extends AppCompatActivity {
         button =findViewById(R.id.btn_cp);
         progressBar =findViewById(R.id.progressbar_cp);
         mAuth = FirebaseAuth.getInstance();
+        cp_logout = findViewById(R.id.btn_logout);
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         currentUserId = user.getUid();
@@ -106,11 +108,39 @@ public class CreateProfile extends AppCompatActivity {
                     startActivityForResult(intent,PICK_IMAGE);
 
 
+
                 }
+
+
+
+
             });
 
+        cp_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
 
 
+        });
+
+
+
+    }
+
+
+    private void logout() {
+//        FirebaseAuth.getInstance().signOut();
+//        Intent intent = new Intent(CreateProfile.this, farmerLoginActivity.class);
+//
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//        startActivity(intent);
+//        finish();
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(CreateProfile.this,farmerLoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 

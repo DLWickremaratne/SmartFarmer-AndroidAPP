@@ -53,7 +53,7 @@ public class BottomSheetMenu extends BottomSheetDialogFragment {
         df = FirebaseDatabase.getInstance().getReference("All Users");
         cv_delete = view.findViewById(R.id.cv_delete);
         cv_logout = view.findViewById(R.id.cv_logout);
-        cv_test = view.findViewById(R.id.cv_test);
+
         mAuth = FirebaseAuth.getInstance();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

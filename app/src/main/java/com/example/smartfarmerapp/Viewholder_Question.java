@@ -30,6 +30,7 @@ public class Viewholder_Question extends RecyclerView.ViewHolder {
     public Viewholder_Question(@NonNull View itemView) {
         super(itemView);
     }
+//A ViewHolder describes an item view and metadata about its place within the RecyclerView.
 
     public void setitem(FragmentActivity activity,String name,String url, String userid,String key, String question,String time){
 

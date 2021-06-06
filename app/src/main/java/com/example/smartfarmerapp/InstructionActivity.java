@@ -81,7 +81,7 @@ public class InstructionActivity extends AppCompatActivity {
 
 
 
-        storageReference = FirebaseStorage.getInstance().getReference("User posts");
+        storageReference = FirebaseStorage.getInstance().getReference("User posts");//upload files
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -110,10 +110,16 @@ public class InstructionActivity extends AppCompatActivity {
     }
 
     private void chooseImage() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("image/* video/*");
-        //intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent,PICK_FILE);
+////        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//        intent.setType("image/* video/*"); //both videos and photos
+//        //intent.setAction(Intent.ACTION_GET_CONTENT);
+////        startActivityForResult(intent,PICK_FILE);
+
+
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        galleryIntent.setType("image/* video/*");
+        startActivityForResult(galleryIntent,PICK_FILE);
 
     }
 
@@ -149,7 +155,7 @@ public class InstructionActivity extends AppCompatActivity {
 
     }
     private String getFileExt(Uri uri){
-        ContentResolver contentResolver = getContentResolver();
+        ContentResolver contentResolver = getContentResolver(); //select file is mp4 or jpack
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType((contentResolver.getType(uri)));
     }
@@ -253,7 +259,7 @@ public class InstructionActivity extends AppCompatActivity {
 
                             } else if (type.equals("vv")) {
 
-                                farmerInstruction.setDesc(desc);
+                                farmerInstruction.setDesc(desc);//description
                                 farmerInstruction.setName(name);
                                 farmerInstruction.setPostUri(downloadUri.toString());
                                 farmerInstruction.setTime(time);

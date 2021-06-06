@@ -34,7 +34,7 @@ public class AskActivity extends AppCompatActivity {
     Uri imageUri;
     Button button;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference AllQuestions,UserQuestions;
+    DatabaseReference AllQuestions,UserQuestions;//save data in two different child
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     DocumentReference documentReference;
     FarmerQuestion farmer;
@@ -48,7 +48,7 @@ public class AskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ask);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); //Get the currently signed-in user
         String currentUserid = user.getUid();
 
         editText = findViewById(R.id.ask_et_question);
@@ -56,8 +56,8 @@ public class AskActivity extends AppCompatActivity {
         button = findViewById(R.id.btn_submit);
         documentReference = db.collection("user").document(currentUserid);
         AllQuestions =  database.getReference("All Questions");
-        UserQuestions = database.getReference("User Questions").child(currentUserid);
-
+        UserQuestions = database.getReference("User Questions").child(currentUserid);//save data inside user id
+//save the question answers in two different branchers
         farmer = new FarmerQuestion();
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -66,11 +66,11 @@ public class AskActivity extends AppCompatActivity {
 
                 String question = editText.getText().toString();
 
-                Calendar cdate = Calendar.getInstance();
+                Calendar cdate = Calendar.getInstance();//call date
                 SimpleDateFormat currentdate = new SimpleDateFormat("dd-MMMM-YYYY");
                 final  String savedate = currentdate.format(cdate.getTime());
 
-                Calendar ctime = Calendar.getInstance();
+                Calendar ctime = Calendar.getInstance();//save time
                 SimpleDateFormat currenttime = new SimpleDateFormat("HH:mm:ss");
                 final String savetime = currenttime.format(ctime.getTime());
 
@@ -86,11 +86,11 @@ public class AskActivity extends AppCompatActivity {
                     farmer.setUserid(uid);
                     farmer.setTime(time);
                     String id = UserQuestions.push().getKey();
-                    UserQuestions.child(id).setValue(farmer);
+                    UserQuestions.child(id).setValue(farmer); //save data in user reference
 
                     String child = AllQuestions.push().getKey();
                     farmer.setKey(id);
-                    AllQuestions.child(child).setValue(farmer);
+                    AllQuestions.child(child).setValue(farmer);//save data
                     Toast.makeText(AskActivity.this, "Submitted", Toast.LENGTH_SHORT).show();
 
 

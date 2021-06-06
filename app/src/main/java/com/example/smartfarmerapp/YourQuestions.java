@@ -56,6 +56,7 @@ public class YourQuestions extends AppCompatActivity {
                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                         final String currentUserid = user.getUid();
 
+
                         final String postkey = getRef(position).getKey();
 
                         holder.setitemdelete(getApplication(), model.getName(), model.getUrl(), model.getUserid(), model.getKey(), model.getQuestion(), model.getTime());
